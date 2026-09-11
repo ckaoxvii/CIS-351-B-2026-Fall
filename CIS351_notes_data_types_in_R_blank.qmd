@@ -1,0 +1,125 @@
+---
+title: "Data Frames in R"
+subtitle: "CIS 351: Week X Day Y"
+date: ""
+author: ""
+format:
+  html:
+    embed-resources: true
+    code-overflow: wrap
+    number-sections: true
+---
+
+## Load Packages and Data
+
+```{r}
+#| message: false
+library()
+
+library()
+
+library()
+```
+
+## Data Types in R
+
+There are three main types of data we will work with in this course
+
+* ****: The usual numbers
+* ****: Letters; these can be mixed numbers or symbols
+* ****: Binary values corresponding to `TRUE` or `FALSE`
+
+:::{.callout-important icon='false'}
+# The `class()` Function
+
+We can determine the data type of an object by using the `class()` function. 
+:::
+
+### Numeric Values
+
+```{r}
+class()
+```
+
+```{r}
+class()
+```
+
+```{r}
+bob <- 
+
+class()
+```
+
+### Character Values
+
+Character values are typically values that are wrapped around by `''` or `""`.
+
+```{r}
+
+```
+
+```{r}
+class()
+```
+
+```{r}
+
+```
+
+```{r}
+class()
+```
+
+```{r}
+my_name <- 
+```
+
+```{r}
+class(my_name)
+```
+
+### Logical Values
+
+There are only two logical values: `TRUE` and `FALSE`. 
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+class()
+
+class()
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+## `NA` Values
+
+`NA` (not available) is a special type of data in R. 
+
+```{r}
+
+```
+
+```{r}
+class()
+```
+```{r}
+
+```
+
+```{r}
+
+```
