@@ -1,0 +1,87 @@
+---
+title: "Importing Data into Positron"
+subtitle: "CIS 351: Week 2 Day 2"
+date: ""
+author: ""
+format: 
+  html:
+    embed-resources: true
+---
+
+## Learning Objectives
+
+* Import `.csv` and `.xlsx` files into Positron
+* Assign variable names to imported data
+* Use the `names()` and `head()` functions to preview data
+
+## Loading Packags
+
+```{r}
+#| message: false
+
+library(tidyverse)
+
+library(readxl)
+
+library(janitor)
+
+library(palmerpenguins)
+```
+
+## Preparatory Work
+
+First, make sure that the file is in the current working folder. In this lesson, our current working folder is **Week**. 
+
+## Importing CSVs
+
+We use the `read_csv()` function to import a `.csv` file into the Quarto document.
+
+:::{.callout-note icon='false'}
+## Example 1.
+
+Import the `dogs.csv` into the Quarto document and name it `dogs`.
+
+```{r}
+dogs <- read_csv("")
+
+dogs
+```
+:::
+
+:::{.callout-important}
+Make sure that the directory names are separated by the forward slash symbol (`/`) and not the backslash symbol (`\`). In Windows, Positron is known to use the incorrect slash symbol when copying file paths.
+:::
+
+:::{.callout-note icon='false'}
+## Example 2.
+
+Import the `fastfood.csv` into the Quarto document and name is `fastfood`. Use the `names()` function to display the column names of `fastfood` and the `head()` function to show the first six rows of the data.
+
+```{r}
+fastfood <- read_csv()
+
+names()
+
+head()
+```
+:::
+
+## Importing Excel Workbooks
+
+We use the `excel_sheets()` function to list all sheet names of an Excel Workbook and the `read_excel()` function to import an Excel Workbook (or worksheet) into the Quarto document.
+
+:::{.callout-note icon='false'}
+## Example 3.
+
+Print the sheet names of `week_5_day_1.xlsx` and import the `dogs` sheet into the Quarto doc.
+
+```{r}
+excel_sheets()
+```
+
+```{r}
+dogs <- read_excel()
+
+dogs
+```
+:::
