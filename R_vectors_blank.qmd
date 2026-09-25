@@ -1,0 +1,104 @@
+---
+title: "Vectors in R"
+subtitle: ""
+date: ""
+author: ""
+format: 
+  html:
+    embed-resources: true
+    code-overflow: wrap
+---
+
+## Load Packages 
+
+```{r}
+#| message: false
+
+library()
+
+library()
+
+library()
+
+library()
+```
+
+## Vectors in R
+
+A **vector** in R is an object that contains values of the same data type. To construct a vector in R, we use the `c()` function.
+
+:::{.callout-note icon='false'}
+## Example 1.
+
+Construct a vector, `weight_lb`, containing the weights 65, 75, 68, 22, 40, 50, 20, 60, 35, and 22. What is the data type of this vector?
+
+_Solution._
+```{r}
+weight_lb <- 
+
+weight_lb
+
+class()
+```
+:::
+
+The `length()` function will provide the number of elements in a vector. This works for vectors of all data types.
+
+:::{.callout-note icon='false'}
+## Example 2.
+
+Construct a vector, `name`, containing the names Bella, Max, Carter, Daisy, Lucy, Rocky, Molly, Buddy, Sadie, and Cooper. What is the data type of this vector? How many names are there in `name`?
+
+_Solution._
+
+```{r}
+name <- 
+
+class()
+```
+:::
+
+:::{.callout-note icon='false'}
+## Example 3.
+
+Construct a vector, `bella_info`, containing the values Bella, Labrador Retriever, 65. What is the data type of this vector?
+
+_Solution._
+
+```{r}
+bella_info <- 
+
+class()
+
+bella_info
+```
+:::
+
+:::{.callout-important}
+**A vector can only contain values of a single type.** If multiple data types are in the same vector, R will convert the objects in the vector according to the following hierarchy of types:
+
+```{mermaid}
+%%| fig-align: center
+ 
+flowchart LR
+  A[Character] --> B(Numeric) --> C([Logical])
+```
+:::
+
+## Working with Vectors: Vectorization
+
+Recall that, in Excel, if we wanted to transform the values of a numerical variable, then we first use cell references to perform the calculation in the Formula Bar, then fast fill the rest of the values in the column. In R, this process is much simpler. We only need to work with the column name rather than individual values in the column. This process of working with an entire column, variable, or vector at once is called **vectorization.** 
+
+:::{.callout-note icon='false'}
+## Example 4.
+
+Convert the `weight_lb` vector from pounds to kilograms using vectorization. Recall that 1 lb is approximately equal to 0.4535924 kg. Use the `round()` function to round all calculations to two decimal places.
+
+_Solution._
+
+```{r}
+weight_kg <- 
+
+weight_kg
+```
+:::
