@@ -1,0 +1,153 @@
+---
+title: "Vectorized Operations in R"
+subtitle: ""
+date: ""
+author: ""
+format: 
+  html:
+    embed-resources: true
+    code-overflow: wrap
+---
+
+## Load Packages and Data
+
+```{r}
+#| message: false
+ 
+library()
+
+library()
+
+library()
+
+library()
+```
+
+## Relational Operations
+
+The **relational operations** in R compare values and return logical results: `TRUE` or `FALSE`. The symbols used to compare the values are called the **relational operators**. These operators are summarized in the table below.
+
+```{css, echo=FALSE}
+.center-table table {
+  width: var(--table-width, 60%);
+  margin-left: auto;
+  margin-right: auto;
+}
+```
+
+:::{.center-table}
+| Operator Name            | Mathematical Symbol | R Code |
+|--------------------------|:-------------------:|:------:|
+| Equal to                 | $=$                 | `==`   |
+| Not equal to             | $\ne$               | `!=`   |
+| Less than                | $<$                 | `<`    |
+| Less than or equal to    | $\leqslant$         | `<=`   |
+| Greater than             | $>$                 | `>`    |
+| Greater than or equal to | $\geqslant$         | `>=`   |
+: {.striped .hover}
+:::
+
+:::{.callout-note icon='false'}
+## Example 1.
+
+Answer the following questions using the `weight_lb` vector defined below. 
+
+```{r}
+weight_lb <- c(65, 75, 68, 22, 40, 50, 20, 60, 35, 22)
+```
+
+a. Which values in the vector are equal to 40? 
+b. Which values are equal to 77?
+c. Which values are _not_ equal to 22?
+d. Which values are less than 65?
+e. Which values are less than or equal to 70?
+f. Which values are greater than 50?
+g. Which values are greater than or equal to 50?
+
+_Solutions._
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+:::
+
+## Logical Operations
+
+**Logical operations** in R are used to combine or negate logical conditions that evaluate to `TRUE` or `FALSE`. These operations are especially useful when used with relational operators to filter data, evaluate multiple conditions, and control program flow. In the expressions below, `X` and `Y` represent logical statements or conditions that return either `TRUE` or `FALSE`. The logical operators available in R are summarized in the table below.
+
+:::{.center-table style="--table-width: 75%;"}
+| Operator Name | R Code |   R Syntax  | Description                                         |
+|---------------|:------:|:-----------:|-----------------------------------------------------|
+| And           |   `&`  |   `X & Y`   | Both `X` and `Y` must be true                       |
+| Or            |  `\|`  |   `X \| Y`  | Either `X` is true or `Y` is true, or both are true |
+| Exclusive or  |  `xor` | `xor(X, Y)` | Either `X` is true or `Y` is true, but not both     |
+| Negation      |   `!`  |     `!X`    | Negates the truth value of `X`                      |
+: {.striped .hover}
+:::
+
+:::{.callout-note icon='false'}
+## Example 2.
+
+Use the `weight_lb` vector from Example 1 to complete the following questions.
+
+a. Determine the values that are greater than 50 and less than or equal to 70.
+b. Determine the values that are greater than or equal to 50 or less than 70.
+c. Determine the values that are great than 50 xor less than 70.
+d. Negate the truth value of parts a, b, and, c.
+
+_Solutions._
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+:::
+
+## The `%in%` Operator
+
+The `%in%` operator in R is used to determine whether elements of one vector are contained in another vector. It returns a logical vector of `TRUE` or `FALSE` values indicating whether each element of the vector on the left side of `%in%` belongs in the vector on the right side of `%in%`.
+
+:::{.callout-note icon='false'}
+## Example 3.
+
+Use the `%in%` operator to determine whether the values 20 and 33 are in `weight_lb`.
+
+_Solutions._
+
+**Method 1.**
+```{r}
+
+```
+
+**Method 2.**
+```{r}
+
+```
+:::
