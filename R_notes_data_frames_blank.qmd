@@ -1,0 +1,105 @@
+---
+title: "Data Frames in R"
+subtitle: ""
+date: 
+author: ""
+format:
+  html:
+    embed-resources: true
+    code-overflow: wrap
+    number-sections: true
+---
+
+## Load Packages and Data
+
+```{r}
+#| message: false
+library()
+
+library()
+
+library()
+
+library()
+
+dogs <- read_csv() |>
+  clean_names()
+
+earthquakes <- read_csv() |>
+  clean_names()
+
+fastfood <- read_csv() |>
+  clean_names()
+```
+
+## Data Frames in R
+
+We have encountered data frames many times throughout this course. A **data frame** is a collection of vectors of equal length, where each vector represents a variable. 
+
+:::{.callout-note icon='false'}
+## Example 1.
+
+Construct a data frame in R using the following table.
+
+| Name            | Breed              | Weight (lbs) |
+|-----------------|--------------------|--------------|
+| Bella           | Labrador Retriever |           65 |
+| Max             | German Shepard     |           75 |
+| Carter          | Mixed              |           68 |
+| Daisy           | Beagle             |           22 |
+: {.striped}
+
+_Solution._
+
+To construct a data frame in R, we use the `data.frame()` function and provide the column vectors as its arugments.
+
+```{r}
+dogs_abbr <- data.frame()
+
+dogs_abbr
+```
+:::
+
+The following functions can be used to obtain basic information about a data frame in R.
+
+| Function     | R Code      | Description                                        |
+|--------------|-------------|----------------------------------------------------|
+| Row Count    | `nrow()`    | Returns the number of rows                         |
+| Column Count | `ncol()`    | Returns the number of columns                      |
+| Dimensions   | `dim()`     | Returns the dimensions of the data frame           |
+| Column Names | `names()`   | Returns a vector of column names                   |
+| Structure    | `str()`     | Displays an internal structure of the data frame   |
+| Summary      | `summary()` | Returns a basic statistical summary of all columns |
+: {.striped}
+
+:::{.callout-note icon='false'}
+## Example 2.
+
+Apply each of the functions from the table above to the `fastfood` data frame.
+
+_Solution._
+
+```{r}
+nrow()
+```
+
+```{r}
+ncol()
+```
+
+```{r}
+dim()
+```
+
+```{r}
+names()
+```
+
+```{r}
+str()
+```
+
+```{r}
+summary()
+```
+:::
