@@ -1,0 +1,97 @@
+---
+title: "Logical Subsetting in R"
+subtitle: ""
+date: ""
+author: ""
+format:
+  html:
+    embed-resources: true
+    code-overflow: wrap
+    number-sections: true
+---
+
+## Load Packages and Data
+
+```{r}
+#| message: false
+library()
+
+library()
+
+library()
+
+library()
+
+dogs <- read_csv() |>
+  clean_names()
+
+earthquakes <- read_csv() |>
+  clean_names()
+
+fastfood <- read_csv() |>
+  clean_names()
+```
+
+## Logical Subsetting in R
+
+Previously, we discussed how to use relational and logical operations to determine elements in a vector that satisfy a certain condition or a set of conditions. 
+
+:::{.callout-note icon='false'}
+## Example 0.
+
+Consider the following vector of dog weights from the `dogs` data frame. Which weights are greater than the mean weight?
+
+```{r}
+weight_lbs <- 
+```
+
+_Solution._
+
+```{r}
+weight_lbs > 
+
+heavy_indices <- 
+```
+:::
+
+In Example 0, we saw that the relational operation only returns a logical vector indicating which elements satisfy the condition. Rather than viewing only these `TRUE` and `FALSE` values, we often want to use the logical vectors to retain only the elements that satisfy a condition or a set of conditions. 
+
+:::{.callout-note icon='false'}
+## Example 2. 
+
+Determine the values in `weight_lbs` that are greater than the mean dog weight.
+
+_Solution._ We will present three solutions, each representing a higher level of abstraction than the previous one.
+
+**Method 1.** The output of the code `weight_lbs > mean(weight_lbs, na.rm = TRUE)` is a vector of logical values. Let us pass this logical vector to the `[]` operator for `weight_lbs`.
+
+```{r}
+c(TRUE, TRUE, TRUE, FALSE, TRUE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, TRUE)
+```
+
+**Method 2.** Since we defined the logical vector as `heavy_indices`, we can pass this object to the `[]` operator instead of typing out the entire vector.
+
+```{r}
+weight_lbs[]
+```
+
+**Method 3.** We can dispense with assigning the result of Example 0 to a variable and pass the relational statement to the `[]` operator to obtain the same result.
+
+```{r}
+weight_lbs[]
+```
+:::
+
+:::{.callout-note icon='false'}
+## Example 3.
+
+From the `earthquakes` data frame, determine the earthquake magnitudes that fall between the first quartile (exclusive) and the third quartile (inclusive).
+
+_Solution._
+
+```{r}
+richter <- 
+
+richter[]
+```
+:::
