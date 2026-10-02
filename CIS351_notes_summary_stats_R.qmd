@@ -1,0 +1,309 @@
+---
+title: "Summary Statistics for Vectors in R"
+subtitle: "CIS 351:"
+date: today
+author: ""
+format:
+  html:
+    embed-resources: true
+    code-overflow: wrap
+    number-sections: true
+---
+
+## Load Packages and Data
+
+```{r}
+#| message: false
+library(tidyverse)
+
+library(janitor)
+
+library(readxl)
+
+library(palmerpenguins)
+
+dogs <- read_csv("/Users/chriskao/Documents/CIS351/Week 3/dogs.csv") |>
+  clean_names()
+
+earthquakes <- read_csv("/Users/chriskao/Documents/CIS351/Week 3/earthquakes.csv") |>
+  clean_names()
+
+fastfood <- read_csv("/Users/chriskao/Documents/CIS351/Week 3/fastfood.csv") |>
+  clean_names()
+```
+
+## Summary Statistics of Vectors in R
+### Summary Functions
+
+Base R and the `{dplyr}` package have various functions that can provide summaries of a vector. Below is a table of frequently used summary functions in R.
+
+| Function            | R Code     | Description                             |
+|---------------------|------------|-----------------------------------------|
+| Length              | `length()` | Counts the number of values in a vector |
+| Distinct Values     | `unique()` | Finds all distinct values in a vector     |
+| Number of Distinct Values | `n_distinct()` | Count the number of distinct values in a vector
+| Sum                 | `sum()`    | Adds all numeric values together        |
+| Mean                | `mean()`   | Calculates the average                  |
+| Median              | `median()` | Finds the median value                  |
+| Standard Deviation  | `sd()`     | Calculates the standard deviation       |
+| Variance            | `var()`    | Calculate the variance                  |
+| Minimum             | `min()`    | Finds the minimum value                 |
+| Maximum             | `max()`    | Finds the maximum value                 |
+| Interquartile Range | `IQR()`    | Calculates the interquartile range      |
+: {.striped}
+
+:::{.callout-note icon='false'}
+## Example 1.
+
+a. Find the number of observations in the `name` variable of the `dogs` data frame.
+b. Find the number of observations in the `island` variable of the `penguins` data frame.
+
+_Solutions._
+
+```{r}
+# (a)
+length(dogs$name)
+```
+
+```{r}
+# (b)
+length(penguins$island)
+```
+:::
+
+:::{.callout-note icon='false'}
+## Example 2.
+
+a. Find all unique dog names and breeds in the `dogs` data frame.
+b. Find all unique penguin species and sex in the `penguins` data frame.
+
+_Solutions._
+
+```{r}
+# (a)
+unique(dogs$name)
+
+unique(dogs$breed)
+```
+
+```{r}
+# (b)
+unique(penguins$species)
+
+unique(penguins$sex)
+```
+:::
+
+:::{.callout-note icon="false"}
+## Example 3.
+
+a. How many unique dog names and breeds are there in the `dogs` data frame?
+b. How many unique penguin species and sex are there in the `penguins` data frame?
+
+_Solutions._
+
+```{r}
+# (a)
+n_distinct(dogs$name)
+
+n_distinct(dogs$breed)
+```
+
+```{r}
+# (b)
+n_distinct(penguins$species)
+
+n_distinct(penguins$sex) # this counts the NA
+
+n_distinct(penguins$sex, na.rm = TRUE)
+```
+:::
+
+:::{.callout-note icon='false'}
+## Example 4.
+
+a. Find the total weight of all dogs in the `dogs` data frame.
+b. Find the total flipper length of all penguins in the `penguins` data frame.
+
+_Solutions._
+
+```{r}
+# (a)
+sum(dogs$weight_lbs)
+```
+
+```{r}
+# (b)
+sum(penguins$flipper_length_mm)
+
+sum(penguins$flipper_length_mm, na.rm = TRUE)
+```
+:::
+
+:::{.callout-note icon='false'}
+## Example 5.
+
+Find the following summary statistics for the weights of all dogs in the `dogs` data frame:
+  a. Mean
+  b. Median
+  c. Standard deviation
+  d. Variance
+  e. Minimum
+  f. Maximum
+  g. Interquartile range
+
+_Solutions._
+
+```{r}
+# (a)
+mean(dogs$weight_lbs)
+```
+
+```{r}
+# (b)
+median(dogs$weight_lbs)
+```
+
+```{r}
+# (c)
+sd(dogs$weight_lbs)
+```
+
+```{r}
+# (d)
+var(dogs$weight_lbs)
+```
+
+```{r}
+# (e)
+min(dogs$weight_lbs)
+```
+
+```{r}
+# (f)
+max(dogs$weight_lbs)
+```
+
+```{r}
+# (g)
+IQR(dogs$weight_lbs)
+```
+:::
+
+:::{.callout-note icon='false'}
+## Example 6.
+
+Repeat Example 5 using the penguins' body mass.
+
+_Solutions._
+
+```{r}
+# (a)
+mean(penguins$body_mass_g, na.rm = TRUE)
+```
+
+```{r}
+# (b)
+median(penguins$body_mass_g, na.rm = TRUE)
+```
+
+```{r}
+# (c)
+sd(penguins$body_mass_g, na.rm = TRUE)
+```
+
+```{r}
+# (d)
+var(penguins$body_mass_g, na.rm = TRUE)
+```
+
+```{r}
+# (e)
+min(penguins$body_mass_g, na.rm = TRUE)
+```
+
+```{r}
+# (f)
+max(penguins$body_mass_g, na.rm = TRUE)
+```
+
+```{r}
+# (g)
+IQR(penguins$body_mass_g, na.rm = TRUE)
+```
+:::
+
+### Calculating Quantiles
+
+:::{.callout-warning icon='false'}
+## Quartiles and Quantiles
+
+A **quantile** is a value that identifies a specified percentage of observations in an ordered data set. **Quartiles** and **percentiles** are special cases of quantiles that divide the data into four and 100 equal parts, respectively.
+
+In R, the `quantile()` returns the five-number summary by default. You can also specify percentage values to find quantiles at other locations in the data
+:::
+
+:::{.callout-note icon='false'}
+## Example 7.
+
+Find the five-number summary for the penguins' flipper lengths.
+
+_Solution._
+```{r}
+quantile(penguins$flipper_length_mm, na.rm = TRUE)
+```
+:::
+
+:::{.callout-note icon='false'}
+## Example 8.
+
+Calculate the 10th, 30th, 50th, 70th, and 90th percentiles of the penguins’ bill lengths.
+
+_Solution._
+```{r}
+quantile(
+  penguins$bill_length_mm, # specify the variable
+  probs = c(0.1, 0.3, 0.5, 0.7, 0.9), # specify the percentiles
+  na.rm = TRUE # remove NAs from the calculation
+)
+```
+:::
+
+### The `summary()` Function
+
+The `summary()` function is a base R function that calculates the five-number summary, along with the mean and the number of NA's in a numeric variable. When applied to a character variable, the `summary()` function returns the number of observations, the number of of distinct values, and the number of NA's.
+
+:::{.callout-caution}
+The `summary()` function does not provide the standard deviation, variance, or interquartile range of a numeric variable.
+:::
+
+:::{.callout-note icon='false'}
+## Example 9.
+
+Use the `summary()` function to find the five-number summary of penguins' bill depths.
+
+_Solution._
+
+```{r}
+summary(penguins$bill_depth_mm)
+```
+:::
+
+:::{.callout-note icon='false'}
+## Example 10.
+
+a. Use the `summary()` function on the `breed` variable in the `dogs` data frame.
+b. Use the `summary()` function on the `region` variable in the `earthquakes` data frame.
+
+_Solutions._
+
+```{r}
+# (a)
+summary(dogs$breed)
+```
+
+```{r}
+# (b)
+summary(earthquakes$region)
+```
+:::
