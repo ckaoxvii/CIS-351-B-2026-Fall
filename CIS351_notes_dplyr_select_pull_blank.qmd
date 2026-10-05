@@ -1,0 +1,153 @@
+---
+title: "`select()` and `pull()`"
+subtitle: ""
+date: ""
+author: "Dr. Kao"
+format:
+  html:
+    embed-resources: true
+    code-overflow: wrap
+    number-sections: true
+---
+
+## Load Packages and Data
+
+```{r}
+#| message: false
+library()
+
+library()
+
+library()
+
+library()
+
+dogs <- read_csv() |>
+  clean_names()
+
+earthquakes <- read_csv() |>
+  clean_names()
+
+fastfood <- read_csv() |>
+  clean_names()
+
+water_quality <- read_csv() |> 
+  clean_names()
+```
+
+## Introduction 
+
+There are two verbs in the `dplyr` grammar that let us extract column(s) from a data frame. 
+* `pull()` extracts a single column from a data frame and returns it as a vector, similar to the `$` operator in base R.
+* `select()` extracts multiple columns from a data frame and returns the result as a data frame.
+* Both function can take column names or column positions as arguments.
+
+## `pull()`
+
+:::{.callout-note icon='false'}
+## Example 1.
+
+Extract the `water_temperature_c` column from the `water_quality` data frame.
+
+_Solution._
+
+First, use the `names()` function to check the column names of the `water_quality` data frame:
+
+```{r}
+
+```
+
+**Method 1:** `pull` using the column name.
+
+```{r}
+water_temp_c_1 <- 
+```
+
+```{r}
+head()
+
+class()
+```
+
+**Method 2:** `pull` using the column position. The output from `names(water_quality)` shows us that the `water_temperature_c` is the 7th column in the data frame.
+
+```{r}
+water_temp_c_2 <- 
+```
+
+```{r}
+head()
+
+class()
+```
+:::
+
+:::{.callout-note icon='false'}
+## Example 2.
+
+Extract the last column from the `water_quality` data frame. 
+
+_Solution._
+
+We can use the `names()` to see that the name of the last column is `longitude`, then use `pull()` to extract that column by name.
+
+Alternatively, we can use `-1` as the column position to achieve the same result.
+
+```{r}
+longitude <- 
+```
+
+```{r}
+head()
+```
+:::
+
+:::{.callout-warning icon='false'}
+## Remark.
+
+`pull()` and `$` do almost exactly the same thing, but `pull()` is preferred in our case because conforms to our code involving pipes.
+:::
+
+## `select()`
+
+:::{.callout-note icon='false'}
+## Example 2.
+
+Extract the `flipper_length_mm` and `body_mass_g` columns from the `penguins` data frame.
+
+_Solution._
+
+**Method 1.** Using the column names.
+
+```{r}
+penguins_fl_bm_1 <- 
+```
+
+```{r}
+head()
+
+class()
+```
+
+**Method 2.** Using the column positions.
+
+```{r}
+penguins_fl_bm_2 <- 
+```
+
+```{r}
+head()
+
+class()
+```
+:::
+
+## Appendix
+
+Belwo is a list of new functions introduced in this section.
+
+| Function   | Description                                         |
+|------------|-----------------------------------------------------|
+| `pull()`   | Extract a single column as a vector, similar to `$` |
+| `select()` | Extract columns as data frame                       |
+: {.striped}
