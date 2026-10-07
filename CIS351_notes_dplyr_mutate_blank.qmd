@@ -1,0 +1,121 @@
+---
+title: "The `mutate()` Function"
+subtitle: ""
+date: ""
+author: ""
+format:
+  html:
+    embed-resources: true
+    code-overflow: wrap
+    number-sections: true
+---
+
+## Load Packages and Data
+
+```{r}
+#| message: false
+library(tidyverse)
+
+library(janitor)
+
+library(readxl)
+
+library(palmerpenguins)
+
+dogs <- read_csv() |>
+  clean_names()
+
+earthquakes <- read_csv() |>
+  clean_names()
+
+fastfood <- read_csv() |>
+  clean_names()
+
+water_quality <- read_csv() |> 
+  clean_names()
+```
+
+## Adding and Modifying Columns 
+
+### The `mutate()` function
+
+The `mutate()` function can add and modify existing columns in a data frame. 
+
+:::{.callout-note icon='false'}
+## Example 1.
+
+Use the `mutate()` function to add a new column to the `dogs` data frame that contains the dogs' weights in kilograms (kg). Round all final values to one decimal place.
+
+_Solution._ First recall that 1 lb is approximately equal to 0.45359237 kg.
+
+```{r}
+
+```
+:::
+
+:::{.callout-note icon='false'}
+## Example 2.
+
+Convert the water temperature to °F in the `water_quality` data frame. Drop the original temperature column and move the new temperature column to its position.
+
+Recall that the formula to convert from °C to °F is
+$$
+  F = \frac{9}{5} C + 32.
+$$
+
+_Solution._ The optional `.keep` argument of `mutate()` lets use control whether the columns used in `mutate()` are retained or removed. The `.before` and `.after` arguments allow us to specify where the new column or columns should be places.
+
+```{r}
+
+```
+
+```{r}
+
+```
+:::
+
+### Group-wise calculations with `mutate()`
+
+Many `dplyr` functions have the powerful capability of performing calculations within groups. This is typically achieved by specifying the `.by` argument and providing one or more variables.
+
+:::{.callout-note icon='false'}
+## Example 3.
+
+Add a new column to the `dogs` data where the new column shows the mean weight (in pounds) within each breed. 
+
+```{r}
+
+```
+:::
+
+:::{.callout-note icon='false'}
+## Example 4.
+
+Continuing from Example 4, add a new column to the `dogs_1` data frame that compares each dog's weight to the mean weight of its breed using the following rules:
+
+* If the dog's weight is greater than the mean breed weight, assign "heavy" to the new column.
+* If the dog's weight is less than the mean breed weight, assign "light" to the new column.
+* If the dog's weight is equal to the mean breed weight, assign "average" to the new column.
+
+_Solution._ Whenever we need to create new values based on one or more conditions, `case_when()` is an extremely useful helper function. It provides a cleaner and more readable alternative to traditional `if...else` statements in most programming languages.
+
+**Method 1:**
+```{r}
+
+```
+
+**Method 2:**
+```{r}
+
+```
+:::
+
+## Appendix
+
+Belwo is a list of new functions introduced in this section.
+
+| Function       | Description                                         |
+|----------------|-----------------------------------------------------|
+| `mutate()`     | Creates new columns or modify existing columns      | 
+| `case_when()`  | Assigns values based on multiple conditions         | 
+: {.striped}
