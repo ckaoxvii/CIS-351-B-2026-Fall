@@ -1,0 +1,203 @@
+---
+title: "The `filter()` and `filter_out()` Functions"
+subtitle: ""
+date: ""
+author: ""
+format:
+  html:
+    embed-resources: true
+    code-overflow: wrap
+    number-sections: true
+execute:
+  error: true
+---
+
+## Load Packages and Data
+
+```{r}
+#| message: false
+library()
+
+library()
+
+library()
+
+library()
+
+dogs <- read_csv() |>
+  clean_names()
+
+earthquakes <- read_csv() |>
+  clean_names()
+
+fastfood <- read_csv() |>
+  clean_names()
+
+water_quality <- read_csv() |> 
+  clean_names()
+```
+
+## The `filter()` Function
+
+The `filter()` function lets us keep the rows of a data frame based on logical conditions.
+
+:::{.callout-note icon='false'}
+## Example 1.
+
+Filter the `dogs` data frame to include only mixed-breed dogs.
+
+_Solution._
+
+```{r}
+```
+
+```{r}
+```
+:::
+
+### Multiple filtering conditions
+
+:::{.callout-note icon='false'}
+## Example 2.
+
+Filter the `penguins` data frame to include only the Gentoo penguins whose body mass is greater than 5,076 g. Then keep only the `sex` and `body_mass_g` columns
+
+```{r}
+```
+
+```{r}
+```
+:::
+
+:::{.callout-note icon='false'}
+## Example 3.
+
+Filter German Shepards and the Beagles from the `dogs` data frame.
+
+_Solution._
+
+**Method 1.**
+
+```{r}
+```
+
+**Method 2.**
+
+```{r}
+```
+:::
+
+:::{.callout-note icon='false'}
+## Example 4.
+
+Keep only the dogs whose weight is between 20.5 lbs and 58 lbs, inclusive.
+
+_Solution._
+
+**Method 1:**
+```{r}
+```
+
+**Method 2:**
+
+```{r}
+```
+:::
+
+### The order of operations
+
+The order of operations matters a great deal when piping sequence of `dplyr` verbs.
+
+:::{.callout-note icon='false'}
+## Example 5.
+
+Select the `sex` and `body_mass_g` columns from the `penguins` data frame, then filter the data frame by retaining only the Gentoo penguins with a body mass greater than 5,076 g.
+
+```{r}
+```
+:::
+
+### Removing rows containing `NA`s using `filter()`
+
+:::{.callout-note icon='false'}
+## Example 6.
+
+Remove the penguins whose sex value is `NA` from the `penguins` data frame.
+
+_Solution._
+
+```{r}
+```
+
+```{r}
+```
+:::
+
+## The `filter_out()` Function
+
+The `filter()` function keeps the rows that satisfy required condition or conditions. What if we want to drop the rows instead of keeping them? 
+
+It turns out that using `filter()` to drop undesired rows can be a complicated process, especially if there are mutliple logical conditions and `NA`s are involved in the variables. Fortunately, we can use the `filter_out()` function to drop the undesired rows.
+
+:::{.callout-note icon='false'}
+## Example 8.
+
+Remove the penguins whose sex value is `NA` from the `penguins` data frame.
+
+_Solution._
+
+```{r}
+```
+
+```{r}
+```
+:::
+
+:::{.callout-note icon='false'}
+## Example 9.
+
+Let the `patients` data frame be defined as below. Remove the rows where the patient is deceased and the year was before 2012.
+
+```{r}
+```
+
+_Solution._
+
+```{r}
+```
+:::
+
+## Advanced Filtering 
+
+:::{.callout-note icon='false'}
+## Example 10.
+
+From the fastfood data frame, filter the rows for food items from McDonald’s and Arby’s with calories between 20 and 690, or for food items from Sonic and Dairy Queen with calories between 490 and 2,430.
+
+_Solution._
+
+**Method 1:** Using only `filter()` and `between()`
+```{r}
+```
+
+**Method 2:** Using `filter()`, `between()`, and `when_any()`.
+
+```{r}
+```
+
+```{r}
+```
+:::
+
+## Appendix
+
+Belwo is a list of new functions introduced in this section.
+
+| Function       | Description                                         |
+|----------------|-----------------------------------------------------|
+| `between()`    | Checks whether values fall within a specified range, inclusive| 
+| `filter()`     | Keeps rows that meet one or more conditions |
+| `filter_out()` | Removes rows that meet one or more conditions |
+| `identical()`  | Checks whether two objects are exactly the same |
+| `when_any()`   | Checks whether at least one of several conditions is true for each row |
+: {.striped}

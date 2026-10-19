@@ -1,0 +1,155 @@
+---
+title: "The Pipe Operator in R"
+subtitle: ""
+date: ""
+author: ""
+format:
+  html:
+    embed-resources: true
+    code-overflow: wrap
+    number-sections: true
+---
+
+## Load Packages and Data
+
+```{r}
+#| message: false
+library()
+
+library()
+
+library()
+
+library()
+
+dogs <- read_csv() |>
+  clean_names()
+
+earthquakes <- read_csv() |>
+  clean_names()
+
+fastfood <- read_csv() |>
+  clean_names()
+
+water_quality <- read_csv() |> 
+  clean_names()
+```
+
+## Composition of Functions
+
+Before we dive into the `dplyr` verbs and their applications, let us talk about one of the greatest inventions in the R universe. 
+
+### Function composition in math
+
+Suppose that $f(x)$ and $g(x)$ are two functions such that the codomain of $g$ is the domain of $f$. The **composition** $f \circ g$ is defined by
+$$
+  (f \circ g)(x) = f(g(x)).
+$$
+This notation can be somewhat problematic because $f(g(x))$ requires us to evaluate $g(x)$ first and then apply $f$ to the result. In other words, function composition is read **from the inside out** (or **from right to left** in the $f \circ g$ notation), which conflicts with the usual left-to-right direction in which we read and write English.
+
+A more natural way to think about function composition is through an **arrow diagram**:
+
+$$
+  x \longrightarrow g(x) \longrightarrow f(g(x))
+$$
+Not only does the arrow diagram align with our usual reading and writing conventions, but it also makes the sequence of operations explicit, reducing potential confusion in the notation.
+
+### Function composition in R
+
+The following examples to illustrate function composition in R and highlight its similarity to function composition in mathematics.
+
+:::{.callout-note icon='false'}
+## Example 1.
+
+Without using the `n_distinct()` function, how many distinct dog breeds are there in the `dogs` data frame?
+
+_Solution._ To count the number of distinct breeds without using `n_distinct()`, we first apply `unique()` to the breed column of the `dogs` data frame and then apply `length()` to the resulting vector. This returns the number of distinct breeds.
+
+```{r}
+
+```
+
+```{r}
+
+```
+:::
+
+Let's look at a slightly more complex example.
+
+:::{.callout-note icon='false'}
+## Example 2.
+
+Without using the `n_distinct()` function, how many distinct values of `sex` are there in the `penguins` data frame?
+
+_Solution._ We have done this example once in a previous lesson. And recall that the `unique()` function counted `NA` as a distinct value in the resulting vector, which is not quite correct. 
+
+The `is.na()` function identifies `NA`s in a variable and preserves them in subsequence operations.
+
+```{r}
+
+```
+
+We need the opposite of this: Identify the values that are not `NA` and keep them in subsequent applications. To do this, we need the negate the logical values returned by the `is.na()` function.
+
+```{r}
+
+```
+
+Now we can apply the `unique()` function:
+
+```{r}
+
+```
+
+And finally,
+
+```{r}
+```
+:::
+
+That was _a lot_ of work just to count two distinct values. Of course, the simplest way to obtain the correct count is to use the `n_distinct()` function. However, depending on the application, we may not always have a convenient _catch-all_ function at our disposal. The next best thing is to express a composition of functions as a sequence of individual operations, making the workflow easier to write and read.
+
+### The pipe operator `|>`
+
+The symbol for the pipe operator is `|>`; it is analogous to the $\longrightarrow$ in the arrow diagram above. Because of this, the pipe operator can express the sequence of operations as if it were a sentence. 
+
+:::{.callout-note icon='false'}
+## Example 3.
+
+Repeat Example 1 using the `|>` operator.
+
+_Solution._ We present two ways of counting distinct breeds using the `|>` operator.
+
+**Method 1.**
+```{r}
+```
+
+**Method 2:**
+```{r}
+```
+:::
+
+In Example 3, we used the `pull()` function to extract the `breed` column instead of using the `$` operator.
+
+:::{.callout-note icon='false'}
+## Example 4.
+
+Repeat Example 2 using the `|>` operator.
+
+_Solution._
+```{r}
+penguins |>
+```
+:::
+
+As we can see from Example 4, it is sometimes unavoidable to compose multiple functions or operations, even when using the `|>` operator. However, the pipe operator makes the sequence of operations much easier to read and follow, significantly reducing the cognitive load compared with the solution in Example 2.
+
+## Appendix
+
+Belwo is a list of new functions introduced in this section.
+
+| Function   | Description                                         |
+|------------|-----------------------------------------------------|
+| `is.na()`  | Checks for `NA`s                                    |
+| `filter()` | Keep rows that satisfy a condition                  |
+: {.striped}
