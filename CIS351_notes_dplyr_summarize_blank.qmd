@@ -1,0 +1,82 @@
+---
+title: "The `summarize()` Function"
+subtitle: ""
+date: ""
+author: ""
+format:
+  html:
+    embed-resources: true
+    code-overflow: wrap
+    number-sections: true
+---
+
+## Load Packages and Data
+
+```{r}
+#| message: false
+library()
+
+library()
+
+library()
+
+library()
+
+dogs <- read_csv() |>
+  clean_names()
+
+earthquakes <- read_csv() |>
+  clean_names()
+
+fastfood <- read_csv() |>
+  clean_names()
+
+water_quality <- read_csv() |> 
+  clean_names()
+```
+
+## Calculating Summary Statistics
+
+Previously, we saw that the `summary()` function returns the five-number summary (along with the mean and the number of missing values) for a numeric variable. In contrast, the `summarize()` function allows us to create customized summaries using statistics of our own choosing. More importantly, `summarize()` can easily perform calculations within groups, while doing the same with `summary()` generally requires first splitting the data into separate groups.
+
+:::{.callout-note icon='false'}
+## Example 1.
+
+Calculate the sample size, mean, and standard deviation of the penguins' body mass.
+
+_Solution._
+```{r}
+```
+:::
+
+:::{.callout-note icon='false'}
+## Example 2.
+
+Repeat the calculations from Example 1, but group the results by penguin species.
+
+_Solution._
+
+```{r}
+```
+:::
+
+:::{.callout-note icon='false'}
+## Example 3.
+
+Repeat the calculations from Example 2, grouping first by species and then by sex. Sort the results by sepcies and sex.
+
+_Solution._
+
+```{r}
+```
+:::
+
+## Appendix
+
+Belwo is a list of new functions introduced in this section.
+
+| Function      | Description                                         |
+|---------------|-----------------------------------------------------|
+| `summarize()` | Computes summary statistics for a data frame, optionally by group. |
+| `arrange()`   | Sorts rows based on one or more variables.          |
+: {.striped}
