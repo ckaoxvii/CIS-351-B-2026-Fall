@@ -1,0 +1,96 @@
+---
+title: "Reshaping Data with `pivot_longer()` and `pivot_wider()`"
+subtitle: ''
+author: ''
+format: 
+  html:
+    embed-resources: true
+    code-overflow: wrap
+execute:
+  error: true
+---
+
+```{r}
+#| message: false
+
+library()
+
+library()
+
+library()
+
+library()
+
+dogs <- read_csv() |>
+  clean_names()
+
+earthquakes <- read_csv() |>
+  clean_names()
+
+fastfood <- read_csv() |>
+  clean_names()
+
+water_quality <- read_csv() |> 
+  clean_names()
+```
+
+## `pivot_longer()`
+
+Data stored in wide format are easier for humans to read and process, but to perform data analysis, wide-format data need to be converted to long (tidy) format. This can be done by using the `pivot_longer()` function.
+
+```r
+pivot_longer(
+  .data,
+  cols,
+  ...,
+  names_to = 'name',
+  names_prefix = 'NULL',
+  names_sep = 'NULL',
+  values_to = 'value',
+  values_drop_na = FALSE
+)
+```
+
+:::{.callout-note icon='false'}
+## Example 1.
+
+Convert the `patients_data` dataset from wide to long format. The data records the blood pressure of five patients at three different visits.
+
+```{r}
+patient_data <- tibble(
+  patient_id = c("P001", "P002", "P003", "P004", "P005"),
+  age = c(45, 62, 37, 54, 48),
+  visit1 = c(128, 142, 118, 135, 126),
+  visit2 = c(124, 138, 121, 132, 123),
+  visit3 = c(122, 134, 116, 129, 120)
+)
+
+patient_data
+```
+
+```{r}
+```
+:::
+
+## `pivot_wider()`
+
+Data stored in long format are useful for data analysis, but sometimes we want to reorganize the data so that each observation occupies a single row and different variables occupy separate columns. The `pivot_wider()` function converts data from long format to wide format.
+
+```r
+  pivot_wider(
+    data,
+    id_cols = NULL,
+    names_from,
+    values_from,
+    ...
+  )
+```
+
+:::{.callout-note icon='false'}
+## Example 2.
+
+Convert the `patient_data_logn` dataset from long to wide format.
+
+```{r}
+```
+:::
