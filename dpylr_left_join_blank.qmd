@@ -1,0 +1,77 @@
+---
+title: "Merging Data with `left_join()`"
+subtitle: ''
+author: ''
+format: 
+  html:
+    embed-resources: true
+    code-overflow: wrap
+execute:
+  error: true
+---
+
+```{r}
+#| message: false
+
+library()
+
+library()
+
+library()
+
+library()
+
+dogs <- read_csv() |>
+  clean_names()
+
+earthquakes <- read_csv() |>
+  clean_names()
+
+fastfood <- read_csv() |>
+  clean_names()
+
+water_quality <- read_csv() |> 
+  clean_names()
+
+bats <- read_csv() |> 
+  clean_names()
+
+geo <- read_csv() |> 
+  clean_names()
+
+weather_vars <- read_csv() |> 
+  clean_names()
+```
+
+## Merging Data
+
+It is rare that we work with a single data set. More often than not, we need to combine multiple data sets into one. The `left_join()` function allows us to combine two or more data frames using one or more keys. A **key** is a variable (or a combination of variables) that identifies matching observations across data frames.
+
+:::{.callout-note icon='false'}
+## Example 1.
+
+Merge the `bats` and `geo` data sets.
+
+_Solution._
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+:::
+
+:::{.callout-note icon='false'}
+## Example 2
+
+Create a data frame that contains both geographical and weather information.
+
+_Solution._
+```{r}
+```
+
+```{r}
+```
+:::
