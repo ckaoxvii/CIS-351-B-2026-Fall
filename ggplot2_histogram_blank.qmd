@@ -1,0 +1,82 @@
+---
+title: "`{ggplot2}`: Histograms"
+subtitle: ""
+date: ""
+author: ""
+format:
+  html:
+    embed-resources: true
+    code-overflow: wrap
+    number-sections: true
+---
+
+## Load Packages and Data
+
+```{r}
+#| message: false
+library(tidyverse)
+
+library(janitor)
+
+library(readxl)
+
+library(palmerpenguins)
+
+dogs <- read_csv() |>
+  clean_names()
+
+earthquakes <- read_csv() |>
+  clean_names()
+
+fastfood <- read_csv() |>
+  clean_names()
+
+water_quality <- read_csv() |> 
+  clean_names()
+```
+
+## Introduction 
+
+There are many ways to create data visualizations in R. The base R graphics system provides built-in plotting functions that are useful for quickly exploring data, and other visualization packages offer their own approaches and specialized features. In this course, however, we will focus on the `{ggplot2}` package.
+
+`{ggplot2}` has become the most widely used data visualization package in the R ecosystem because of its flexibility, consistency, and extensibility. Built on the principles of the Grammar of Graphics, `{ggplot2}` allows users to create everything from simple scatterplots and bar charts to complex, publication-quality visualizations using a coherent and intuitive syntax. Its layered approach makes it easy to customize plots, add annotations, and incorporate additional data elements as needed.
+
+Another advantage of `{ggplot2}` is its extensive ecosystem. Numerous extension packages build on `{ggplot2}`, providing specialized themes, color palettes, interactive graphics, and advanced visualization capabilities. Because it is so widely adopted in academia, industry, and data science workflows, learning `{ggplot2}` will equip you with skills that transfer across many projects and professional settings.
+
+Our first data visualization using `{ggplot2}` will be the histogram.
+
+## Histograms
+
+Histograms are used to display the distribution of a numerical variable.
+
+:::{.callout-note icon='false'}
+## Example 1.
+
+Create a histogram of penguin body mass.
+
+_Solution._
+
+```{r}
+
+```
+
+```{r}
+
+```
+:::
+
+:::{.callout-note icon='false'}
+## Example 2.
+
+Create a histogram of calories for food items in the `fastfood` data frame.
+
+_Solution._
+
+```{r}
+
+```
+
+```{r}
+
+```
+:::
