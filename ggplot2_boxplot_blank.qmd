@@ -1,0 +1,68 @@
+---
+title: "`{ggplot2}`: Boxplots"
+subtitle: ""
+date: ""
+author: ""
+format:
+  html:
+    embed-resources: true
+    code-overflow: wrap
+    number-sections: true
+---
+
+## Load Packages and Data
+
+```{r}
+#| message: false
+library()
+
+library()
+
+library()
+
+library()
+
+dogs <- read_csv() |>
+  clean_names()
+
+earthquakes <- read_csv() |>
+  clean_names()
+
+fastfood <- read_csv() |>
+  clean_names()
+
+water_quality <- read_csv() |> 
+  clean_names()
+```
+
+## Boxplots
+
+Boxplots are used to visualize the distribution of a numerical variable by displaying its minimum, Q1, median, Q3, maximum, and potential outliers.
+
+:::{.callout-note icon="false"}
+## Example 1.
+
+Create a boxplot of cholesterol content by restaurant using the `fastfood` data frame.
+
+_Solution._
+
+```{r}
+```
+
+```{r}
+```
+:::
+
+:::{.callout-note icon='false'}
+## Example 2. 
+
+Create a boxplot of water temperature by region using the `water_quality` data frame. Add the mean for each region to the plot.
+
+_Solution._
+
+```{r}
+```
+
+```{r}
+```
+:::
