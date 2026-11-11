@@ -1,0 +1,79 @@
+---
+title: "`{ggplot2}`: Scatterplots"
+subtitle: ""
+date: ""
+author: ""
+format:
+  html:
+    embed-resources: true
+    code-overflow: wrap
+    number-sections: true
+---
+
+## Load Packages and Data
+
+```{r}
+#| message: false
+library()
+
+library()
+
+library()
+
+library()
+
+library(ggpmisc)
+
+dogs <- read_csv() |>
+  clean_names()
+
+earthquakes <- read_csv() |>
+  clean_names()
+
+fastfood <- read_csv() |>
+  clean_names()
+
+water_quality <- read_csv() |> 
+  clean_names()
+```
+
+## Scatterplots
+
+Scatterplots are used to visualize the relationship between two numerical variables.
+
+:::{.callout-note icon='false'}
+## Example 1.
+
+Create a scatterplot of penguin body mass versus flipper length.
+
+_Solution._
+
+```{r}
+```
+:::
+
+:::{.callout-note icon='false'}
+## Example 2.
+
+Repeat Example 1, but add a best fit line, the equation of the line, the $R^2$ value, and the $p$-value.
+
+_Solution._ We will use the `{ggpmisc}` package to add additional information to our scatterplot.
+
+```{r}
+#| message: false
+ 
+```
+:::
+
+:::{.callout-note icon='false'}
+## Example 3.
+
+Create a scatterplot of water temperature versus enterococci count. Add a line of best fit, the equation of the line, the $R^2$ value, and the $p$-value to the plot.
+
+_Solution._
+
+```{r}
+#| message: false
+
+```
+:::
