@@ -1,0 +1,134 @@
+---
+title: "`{ggplot2}`: Bar Graphs"
+subtitle: ""
+date: ""
+author: ""
+format:
+  html:
+    embed-resources: true
+    code-overflow: wrap
+    number-sections: true
+---
+
+## Load Packages and Data
+
+```{r}
+#| message: false
+library()
+
+library()
+
+library()
+
+library()
+
+dogs <- read_csv() |>
+  clean_names()
+
+earthquakes <- read_csv() |>
+  clean_names()
+
+fastfood <- read_csv() |>
+  clean_names()
+
+water_quality <- read_csv() |> 
+  clean_names()
+```
+
+## Bar Graphs
+
+Bar graphs are used to visualize frequency or count of categories in a categorical variable.
+
+### Basic bar graphs
+
+:::{.callout-note icon='false'}
+## Example 1.
+
+Creata a bar graph showing the count of the penguins by species.
+
+_Solution._
+
+```{r}
+```
+
+```{r}
+```
+:::
+
+:::{.callout-note icon='false'}
+## Example 2.
+
+Repeat Example 1, but add the count for each species above the bars.
+
+_Solution._
+
+```{r}
+```
+:::
+
+:::{.callout-note icon="false"}
+## Example 3.
+
+Create a horizontal bar graph displaying the frequency of each region in the `water_quality` data frame.
+
+_Solution._
+
+```{r}
+```
+:::
+
+### Stacked bar graphs
+
+Stacked bar graphs are used to compare totals across categories while also showing how each total is divided among subgroups. Each bar represents a category, and the segments within the bar represent the contribution of each subgroup to the overall total.
+
+:::{.callout-note icon="false"}
+## Example 4.
+
+Create a stacked bar graph showing the count of penguins by species, with the bars segmented by sex.
+
+_Solution._
+
+**Method 1: Grouped Bar Graph**
+```{r}
+```
+
+**Method 2: Stacked Bar Graph**
+
+```{r}
+```
+
+**Method 3: Proportional Stacked Bar Graph**
+
+```{r}
+```
+:::
+
+### Bar graph with error bars
+
+Bar graphs with error bars are used to compare means across categories while showing the variability or uncertainty of those estimates.
+
+:::{.callout-note icon='false'}
+## Example 5.
+
+Create a bar graph showing the mean body mass by penguin species, including error bars.
+
+_Solution._ In order to add the error bars, we calculate the appropriate statistics by species.
+
+```{r}
+```
+
+**Method 1: Error Bars Representing Standard Deviation** 
+
+```{r}
+```
+
+**Method 2: Error Bars Representing Standard Error** 
+
+```{r}
+```
+
+**Method 3: Error Bars Representing Confidence Interval** 
+
+```{r}
+```
+:::
