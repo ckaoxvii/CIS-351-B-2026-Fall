@@ -1,0 +1,58 @@
+---
+title: "One-Sample and Two-Sample $t$-Tests"
+subtitle: ""
+date: ""
+author: ""
+format:
+  html:
+    embed-resources: true
+    code-overflow: wrap
+    number-sections: true
+---
+
+## Load Packages and Data
+
+```{r}
+#| message: false
+library(tidyverse)
+
+library(janitor)
+
+library(readxl)
+
+library(palmerpenguins)
+
+dogs <- read_csv("https://raw.githubusercontent.com/ckaoxvii/CIS-351-B-2026-Fall/refs/heads/main/Data/dogs.csv") |>
+  clean_names()
+
+earthquakes <- read_csv("https://raw.githubusercontent.com/ckaoxvii/CIS-351-B-2026-Fall/refs/heads/main/Data/earthquakes.csv") |>
+  clean_names()
+
+fastfood <- read_csv("https://raw.githubusercontent.com/ckaoxvii/CIS-351-B-2026-Fall/refs/heads/main/Data/fastfood.csv") |>
+  clean_names()
+
+water_quality <- read_csv("https://raw.githubusercontent.com/ckaoxvii/CIS-351-B-2026-Fall/refs/heads/main/Data/water_quality.csv") |>
+  clean_names()
+
+stalked_eyed_flies <- read_csv("https://raw.githubusercontent.com/ckaoxvii/CIS-351-B-2026-Fall/refs/heads/main/Data/stalked_eyed_flies.csv") |> 
+  clean_names()
+
+body_temp <- read_csv("https://raw.githubusercontent.com/ckaoxvii/CIS-351-B-2026-Fall/refs/heads/main/Data/body_temp.csv") |> 
+  clean_names()
+```
+
+:::{.callout-note icon="false"}
+## Example 1
+
+Calculate the 95% and 99% confidence interval for the population mean, variance, and standard deviation using the `stalked_eyed_flies` data.
+
+_Solution._
+:::
+
+:::{.callout-note icon="false"}
+## Example 2
+
+Perform a one-sample $t$-test to compare the body temperature in the sample data `body_temp` with the "expected" body temperature of 98.6F.
+
+_Solution._
+:::
