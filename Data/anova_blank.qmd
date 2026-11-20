@@ -1,0 +1,75 @@
+---
+title: "Analysis of Variance (ANOVA)"
+subtitle: ""
+date: ""
+author: ""
+format:
+  html:
+    embed-resources: true
+    code-overflow: wrap
+    number-sections: true
+---
+
+## Load Packages and Data
+
+```{r}
+#| message: false
+library()
+
+library()
+
+library()
+
+library(palmerpenguins)
+
+dogs <- read_csv() |>
+  clean_names()
+
+earthquakes <- read_csv() |>
+  clean_names()
+
+fastfood <- read_csv() |>
+  clean_names()
+
+water_quality <- read_csv() |> 
+  clean_names()
+```
+
+## ANOVA
+
+ANOVA (analysis of variance) is a statistical method for testing whether the means of three or more groups differ more than would be expected by chance. A significant result suggests that at least one group mean differs, but further comparisons are needed to determine which groups differ.
+
+
+:::{.callout-note icon="false"}
+## Example 1.
+
+Determine whether there is significant difference in the mean cholesterol level across restauarants.
+
+_Solution._
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+:::
+
+:::{.callout-note icon='false'}
+## Example 2. 
+
+Determine whether there is a significant difference in the mean water temperature across all regions.
+
+_Solution._
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+:::
